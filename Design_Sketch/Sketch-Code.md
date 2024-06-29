@@ -1,4 +1,5 @@
 # 7 motor design
+My modification of my friends 8 motor design.
 If we let i,j, k be the unit vectors and two motors are attached to each of these arms,
 And for each i,j,k pairs, they are rotated clockwise and counterclockwise along the j,k,i axeses respectively.
 If the pair of motors are 90 degrees about ( 45 degrees rotated around the axis of choice)
@@ -41,3 +42,26 @@ r_k_2 += correction_factor;
 
 }
 ```
+# 6 motor design
+we have three arms along the i, j, k axis. Each axis has two reversible rotors pointed along the next axis (j, k, i).
+Thus letting each axis positionally produces torque along the previous axis and force along the next axis.
+The code is very similar to above, but is even simpler (no correction step is needed if all motors can be reversed)
+```c++
+void control(float T_i, float T_j, float T_k ,
+             float F_i, float F_j, float F_k,
+             float &r_i_1 , float &r_i_2,
+             float &r_j_1, float &r_j_2,
+             float &r_k_1, float &r_k_2){
+const float rotor_arm_length = //need value based on design size
+r_i_1 = F_j + rotor_arm_length * T_k;
+r_i_2 = F_j - rotor_arm_length * T_k;
+r_j_1 = F_k + rotor_arm_length * T_i;
+r_j_2 = F_k - rotor_arm_length * T_i;
+r_k_1 = F_i + rotor_arm_length * T_j;
+r_k_2 = F_i - rotor_arm_length * T_j;
+
+}
+```
+# Force at distance
+We also have to do a unit conversion from point of contact to center of drone.
+This involves lever laws.
