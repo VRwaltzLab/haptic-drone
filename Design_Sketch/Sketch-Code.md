@@ -65,3 +65,23 @@ r_k_2 = F_i - rotor_arm_length * T_j;
 # Force at distance
 We also have to do a unit conversion from point of contact to center of drone.
 This involves lever laws.
+Say for the sake of simplicity that the point of contact is some distance(lever length) away on the ith axis of the drone.
+Force and torque along this axis are converted directly.
+Along the j and k axises, we need to add correction forces and torques in order to only experience torques and forces desired.
+Take for example if we just pushed a negative j force to experience a negative j force (resist a positive j force)
+The net force on said object would result in the drone spinning.
+```
+void convert(float &T_i, float &T_j, float &T_k ,
+             float &F_i, float &F_j, float &F_k,
+             float desired_T_i, float desired_T_j, float desired_T_k ,
+             float desired_F_i, float desired_F_j, float desired_F_k){
+float lever_arm_length = // needs number in appropriate unit.
+T_i = desired_T_i;
+F_i = desired_F_i;
+T_j = desired_T_j + desired_F_k / lever_arm_length ;
+T_k = desired_T_k - desired_F_j / lever_arm_length ;
+F_j = desired_F_j + desired_T_k * lever_arm_length ;
+F_k = desired_F_k - desired_T_j * lever_arm_length ;
+
+}
+```
