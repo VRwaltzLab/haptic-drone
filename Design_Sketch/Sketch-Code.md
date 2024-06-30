@@ -1,3 +1,11 @@
+# Problem Statement:
+This code is trying to solve the parts of the inverse kinematics problem for a drone producing force/torque at a location other than its center.
+
+# Core Assumptions:
+1. Negligible interactions between rotors.
+2. Negligible Drag forces (or drag forces are accounted for in force module design)
+3. Rotors can be commanded to produce a force instead of an RPM. (which assumes relatively constant pressure and maybe more)
+
 # 7 motor design
 My modification of my friends 8 motor design.
 If we let i,j, k be the unit vectors and two motors are attached to each of these arms,
