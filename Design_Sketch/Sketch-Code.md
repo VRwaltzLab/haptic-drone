@@ -92,7 +92,7 @@ In cartesian coordinates:
 4. At (0,0) Net forces = -F + alpha * F + Beta * F / r 
 5. At (0,0) Net torques = beta * F - r * alpha * F 
 #### In conclusion:
-Thus beta = 1/2r and alpha = 1/2 makes the net forces and torques 0.
+Thus beta = r/2 and alpha = 1/2 makes the net forces and torques 0.
 ## Torque FBD for lever
 Again in cartesian coordinates:
 1. Human Body exerts clockwise torque T on (0,0)
@@ -101,7 +101,7 @@ Again in cartesian coordinates:
 4. At (0,0) Net forces = beta * T - alpha * T / r
 5. At (0,0) Net Torques = -T + alpha * T + r * beta * T
 #### In conclusion:
-Alpha = 1/2 and beta = 1/(2r) makes the net forces and torques 0.
+Thus, alpha = 1/2 and beta = 1/(2r) makes the net forces and torques 0.
 
 # Coordinate change:
 If it isn't obvious you can change where i,j,k are pointing by appying the appropriate matrix multiplication to torque and force separately.
