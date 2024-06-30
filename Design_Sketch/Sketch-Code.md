@@ -88,7 +88,7 @@ F_k = (desired_F_k - desired_T_j * lever_arm_length ) / 2.0 ;
 In cartesian coordinates:
 1. Human body exerts downward force F on (0,0) 
 2. Drone exerts upward force alpha* F on (r,0)
-3. Drone exerts cclockwise torque beta*F on (r,0)
+3. Drone exerts counterclockwise torque beta*F on (r,0)
 4. At (0,0) Net forces = -F + alpha * F + Beta * F / r 
 5. At (0,0) Net torques = beta * F - r * alpha * F 
 #### In conclusion:
@@ -102,3 +102,7 @@ Again in cartesian coordinates:
 5. At (0,0) Net Torques = -T + alpha * T + r * beta * T
 #### In conclusion:
 Alpha = 1/2 and beta = 1/(2r) makes the net forces and torques 0.
+
+# Coordinate change:
+If it isn't obvious you can change where i,j,k are pointing by appying the appropriate matrix multiplication to torque and force separately.
+Note if the singular values aren't 1 then you have also changed the units in some dimension.
